@@ -8,7 +8,7 @@ func init() {
   }
 }
 
-func PopCount(x unit64) int {
+/*func PopCount(x uint64) int {
   return int(pc[byte(x >> (0*8))] +
         pc[byte(x >> (1*8))] +
         pc[byte(x >> (2*8))] +
@@ -17,4 +17,13 @@ func PopCount(x unit64) int {
         pc[byte(x >> (5*8))] +
         pc[byte(x >> (6*8))] +
         pc[byte(x >> (7*8))])
+}*/
+
+//ex3
+func PopCount(x uint64) int {
+  var sum int
+  for i, _ := range pc {
+    sum += int(pc[byte(x >> uint64(i * 8))])
+  }
+  return sum
 }
